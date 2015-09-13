@@ -17,12 +17,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    # redirect_to user_path_params(:id)
+    
+  end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password,:location,
                                  :password_confirmation)
   end
   
+
   
 end
