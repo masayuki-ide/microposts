@@ -18,17 +18,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # redirect_to user_path_params(:id)
-    
+    @user = User.find(current_user[:id])
+    # @user = User.new(profile_params)
+    # redirect_to @user =current_user 
   end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,:location,
+    params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
+  
+  # def profile_params
+  #   params.require(:user).permit(:name, :email, :location)
+  # end 
+  
   
 
   
