@@ -9,9 +9,6 @@ class CreateUsers < ActiveRecord::Migration
       
       t.index :email, unique: true
       
-      t.string :description
-      t.string :location
-      
     end
   end
 end

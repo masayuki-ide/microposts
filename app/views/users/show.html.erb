@@ -1,6 +1,19 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
-  <%= @user.email %>
-  
 </h1>
+<%if @user[:email].present? %>           
+  <span class="label label-info tags">email</span>
+  <%= @user.email %>
+<% end %>
+<br/>
+<%if @user[:location].present? %>     
+  <span class="label label-info tags">location</span>
+  <%= @user.location %>
+<% end %>
+<br/>
+<%if @user[:description].present? %>
+  <span class="label label-info tags">description</span>
+  <%= @user.description %>
+<% end %>
+
