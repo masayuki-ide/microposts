@@ -1,19 +1,18 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-<%if @user[:email].present? %>           
-  <span class="label label-info tags">email</span>
-  <%= @user.email %>
-<% end %>
-<br/>
-<%if @user[:location].present? %>     
-  <span class="label label-info tags">location</span>
-  <%= @user.location %>
-<% end %>
-<br/>
-<%if @user[:description].present? %>
-  <span class="label label-info tags">description</span>
-  <%= @user.description %>
-<% end %>
-
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
+  </div>
+</div>
