@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :current_user,
+                only: [:index, :edit, :update, :destroy, :following, :followers]
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts
@@ -35,6 +37,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def followings
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following_users
+    render 'show_follow'
+  end
+
+   def followers
+     @title = "Followers"
+     @user = User.find(params[:id])
+     @users = @user.follower_users
+     render 'show_follow'
+   end
 
   private
 
