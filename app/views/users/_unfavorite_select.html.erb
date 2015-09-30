@@ -1,0 +1,5 @@
+<%= form_for(current_user.favorite_lists.find_by(favo_id: favo.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unfollow", class: "btn" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for(current_user.favorite_lists.find_by(posted_id: @micropost.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "UnFavorite", class: "btn" %>
+<% end %>

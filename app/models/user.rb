@@ -38,5 +38,25 @@ class User < ActiveRecord::Base
     def feed_items
         Micropost.where(user_id: following_user_ids + [self.id])    
     end 
+
+    has_many :favorite_lists, class_name:  "Favorite",
+                                     foreign_key: "favoer_id",
+                                     dependent:   :destroy
+    
+    has_many :favorite_microposts, through: :favorite_lists, source: :posted
+    
+    def favorite(fav)
+        favorite_lists.create(posted_id: fav_id)
+    end
+    
+    def unfollow(fav)
+        favorite_lists.find_by(posted_id: fav_id).destroy
+    end
+    
+    def favoriting?(fav)
+        favorite_microposts.include?(fav)
+    end
+    
+    
     
 end

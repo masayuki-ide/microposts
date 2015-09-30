@@ -1,0 +1,5 @@
+<% if current_user.favoriting?(fav) %>
+    <%= render partial: "favorites/unfavorite_select",locals:{fav:fav} %>
+  <% else %>
+    <%= render partial: "favorites/favorite_select",locals:{fav:fav} %>
+<% end %>
