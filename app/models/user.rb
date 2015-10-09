@@ -45,16 +45,16 @@ class User < ActiveRecord::Base
     
     has_many :favorite_microposts, through: :favorite_lists, source: :posted
     
-    def favorite(fav)
-        favorite_lists.create(posted_id: fav_id)
+    def favorite(fa)
+        favorite_lists.create(posted_id: fa.id)
     end
     
-    def unfollow(fav)
-        favorite_lists.find_by(posted_id: fav_id).destroy
+    def unfavorite(fa)
+        favorite_lists.find_by(posted_id: fa.id).destroy
     end
     
-    def favoriting?(fav)
-        favorite_microposts.include?(fav)
+    def favoriting?(fa)
+        favorite_microposts.include?(fa)
     end
     
     

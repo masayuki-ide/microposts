@@ -1,5 +1,5 @@
-<%= form_for(current_user.favorite_lists.find_by(posted_id: fav.id),
+<%= form_for(current_user.favorite_lists.find_by(posted_id: favo.id),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= f.submit "UnFavorite", class: "btn" %>
+  <%= f.submit "お気に入り登録済み" , class: "btn btn-success" %>
 <% end %>

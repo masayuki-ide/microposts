@@ -12,4 +12,13 @@
     </strong>
     followers
   </a>
+  <a href="<%= favoritings_user_path(@user) %>">
+    <strong id="favorite" class="stat">
+      <%= @user.favorite_microposts.count %>
+    </strong>
+    つのお気に入り
+  </a>  
+  
+  
+  
 </div>

@@ -1,5 +1,7 @@
-<% if current_user.favoriting?(fav) %>
-    <%= render partial: "favorites/unfavorite_select",locals:{fav:fav} %>
+<div id="favorite">
+  <% if current_user.favoriting?(fav) %>
+    <%= render partial: "favorites/unfavorite_select",locals:{favo:fav} %>
   <% else %>
-    <%= render partial: "favorites/favorite_select",locals:{fav:fav} %>
-<% end %>
+    <%= render partial: "favorites/favorite_select",locals:{favo:fav} %>
+  <% end %>
+</div>

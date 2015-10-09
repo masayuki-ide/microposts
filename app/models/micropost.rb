@@ -9,5 +9,8 @@ class Micropost < ActiveRecord::Base
   
     has_many :favorite_user, through: :favorite_lists, source: :favoer
   
+  
+    
+  
 
 end
